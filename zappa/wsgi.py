@@ -81,7 +81,7 @@ def create_wsgi_request(event_info,
                 body = body.encode("utf-8")
 
         # Make header names canonical, e.g. content-type => Content-Type
-        for header in headers.keys():
+        for header in list(headers.keys()):
             canonical = header.title()
             if canonical != header:
                 headers[canonical] = headers.pop(header)
